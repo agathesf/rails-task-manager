@@ -1,0 +1,17 @@
+<h1 class="text-center">My Tasks</h1>
+
+<div class="banner">
+  <ul class="col-6 justify-content-center">
+    <% @tasks.each do |task| %>
+      <li class="d-flex justify-content-between"><%= link_to task.title, task_path(task) %>
+      <%= link_to destroy_path(task), method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="far fa-trash-alt"></i>
+      <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<button class="btn">
+<%= link_to "Add a new task", tasks_new_path %>
+</button>
